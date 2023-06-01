@@ -1,0 +1,81 @@
+<!--
+  WARNING: Do not the structure of the HTML. You are only allowed to to add Angular directives
+-->
+
+<div class="box-it">
+  <form>
+    <table>
+      <tr>
+        <td> <label for="name">Name:</label> </td>
+        <td>
+          <input type="text" size="50" id="name" placeholder="Your name as your NRIC">
+        </td>
+      <tr>
+        <td> <label for="email">Email:</label> </td>
+        <td>
+          <input type="email" size="50" id="email" placeholder="Your email">
+        </td>
+      </tr>
+      <tr>
+        <td> <label for="size">Size:</label> </td>
+        <td>
+          <input type="range" id="size" min="0" max="3" value="0"
+              (change)="updateSize(size.value)" #size>
+          <span class="ml-1vw">{{ pizzaSize }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td> <label>Base:</label> </td>
+        <td>
+          <input type="radio" name="base" value="thin"> Thin Crust
+          <input type="radio" name="base" value="thick"> Thick Crust
+        </td>
+      </tr>
+      <tr>
+        <td> <label for="sauce">Sauce:</label> </td>
+        <td>
+          <select id="sauce">
+            <option value="classic">Classic Tomato Sauce</option>
+            <option value="signature">Signature Sauce</option>
+            <option value="salsa">Salsa Sauce</option>
+            <option value="smoky">Smoky BBQ Sauce</option>
+            <option value="napolitana">Napolitana Sauce</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td> <label>Toppings:</label> </td>
+        <td>
+          <div class="space-around">
+            <input type="checkbox" name="toppings" value="chicken"> Chicken
+            <input type="checkbox" name="toppings" value="seafood"> Seafood
+            <input type="checkbox" name="toppings" value="beef"> Beef
+            <input type="checkbox" name="toppings" value="vegetables"> Vegetables
+          </div>
+          <div class="space-around">
+            <input type="checkbox" name="toppings" value="cheese"> Extra Cheese
+            <input type="checkbox" name="toppings" value="arugula"> Arugula (Rocket)
+            <input type="checkbox" name="toppings" value="pineapple"> Pineapple
+          </div>
+          <div>
+            <small>Select toppings, one or more from the above</small>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="comments">Comments:</label></td>
+        <td>
+          <textarea id="comments" cols="40" rows="5"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="justify-right">
+            <button type="submit">Place Order</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+.ml-1vw {
+  margin-left: 1vw;
+}
+
+.space-around {
+  margin: 5px;
+}
+
+.justify-right {
+  float: right;
+}
+
+.box-it {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px gray solid;
+}
+
+.ml-10px {
+  margin-left: 10px;
+}
+
+tr {
+  height: 7vh;
+}
