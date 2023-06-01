@@ -20,13 +20,13 @@ public class PendingOrdersRepository {
 	// TODO: Task 3
 	// WARNING: Do not change the method's signature.
 	public void add(PizzaOrder order) {
-		redis.opsForValue().set("pizza/%s".formatted(order.getOrderId()), this.toJsonString(order));
+		redis.opsForValue().set((order.getOrderId()), this.toJsonString(order));
 	}
 
 	// TODO: Task 7
 	// WARNING: Do not change the method's signature.
 	public boolean delete(String orderId) {
-		return redis.opsForValue().getOperations().delete("pizza/%s".formatted(orderId));
+		return redis.opsForValue().getOperations().delete(orderId);
 	}
 
 	public String toJsonString(PizzaOrder po) {

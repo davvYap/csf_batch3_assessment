@@ -13,26 +13,22 @@ export class PizzaService {
   // You may add any parameters and return any type from placeOrder() method
   // Do not change the method name
   placeOrder(o: order): Promise<orderResponse> {
-    return lastValueFrom(
-      this.http.post<orderResponse>('http://localhost:8080/api/order', o)
-    );
+    return lastValueFrom(this.http.post<orderResponse>('/api/order', o));
   }
 
   // TODO: Task 5
   // You may add any parameters and return any type from getOrders() method
   // Do not change the method name
   getOrders(email: string): Observable<emailOrders[]> {
-    return this.http.get<emailOrders[]>(
-      `http://localhost:8080/api/orders/${email}`
-    );
+    return this.http.get<emailOrders[]>(`/api/orders/${email}`);
   }
 
   // TODO: Task 7
   // You may add any parameters and return any type from delivered() method
   // Do not change the method name
   delivered(id: string): Promise<any> {
-    return lastValueFrom(
-      this.http.delete<any>(`http://localhost:8080/api/order/${id}`)
-    );
+    return lastValueFrom(this.http.delete<any>(`/api/order/${id}`));
   }
+
+  // http://localhost:8080/api/order
 }

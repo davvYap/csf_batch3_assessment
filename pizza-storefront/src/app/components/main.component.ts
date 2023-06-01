@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
     return this.fb.group({
       name: this.fb.control('YAP TAT WAI', [Validators.required]),
       email: this.fb.control('davvyap@gmail.com', [Validators.required]),
-      size: this.fb.control('', [Validators.required]),
+      size: this.fb.control(1, [Validators.required]),
       base: this.fb.control('', [Validators.required]),
       sauce: this.fb.control('', [Validators.required]),
       toppings1: this.fb.control(''),

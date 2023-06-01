@@ -4,11 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
@@ -51,7 +49,7 @@ public class OrderingService {
 		form.add("thickCrust", order.getThickCrust().toString());
 		String toppings = toppingsListToString(order.getTopplings());
 		form.add("toppings", toppings);
-		form.add("comments", order.getComments());
+		form.add("comments", order.getComments().isEmpty() ? "" : order.getComments());
 		System.out.println(form);
 
 		RequestEntity req = RequestEntity.post(PIZZA_REST_API_URL)
