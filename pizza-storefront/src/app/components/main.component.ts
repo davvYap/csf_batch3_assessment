@@ -79,7 +79,7 @@ export class MainComponent implements OnInit {
         this.router.navigate(['/orders', res.email]);
       })
       .catch((err) => {
-        alert(err);
+        alert(err.message);
       });
   }
 

@@ -1,5 +1,6 @@
 package ibf2022.batch3.assessment.csf.orderbackend.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ibf2022.batch3.assessment.csf.orderbackend.models.PizzaOrder;
+import ibf2022.batch3.assessment.csf.orderbackend.services.OrderException;
 import ibf2022.batch3.assessment.csf.orderbackend.services.OrderingService;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -33,19 +35,22 @@ public class OrderController {
 	// TODO: Task 3 - POST /api/order
 	@PostMapping(path = "/order")
 	@ResponseBody
-	public ResponseEntity<String> createOrder(@RequestBody String orderJson) {
+	public ResponseEntity<String> createOrder(@RequestBody String orderJson) throws IOException, OrderException {
 
-		PizzaOrder po = null;
-		try {
-			po = orderSvc.convertFromJsonString(orderJson);
-			orderSvc.placeOrder(po);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					.contentType(MediaType.APPLICATION_JSON)
-					.body(Json.createObjectBuilder()
-							.add("error", e.getMessage())
-							.build().toString());
-		}
+		// PizzaOrder po = null;
+		// try {
+		// po = orderSvc.convertFromJsonString(orderJson);
+		// orderSvc.placeOrder(po);
+		// } catch (Exception e) {
+		// return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+		// .contentType(MediaType.APPLICATION_JSON)
+		// .body(Json.createObjectBuilder()
+		// .add("error", e.getMessage())
+		// .build().toString());
+		// }
+		System.out.println("input >>> " + orderJson);
+		PizzaOrder po = orderSvc.convertFromJsonString(orderJson);
+		po = orderSvc.placeOrder(po);
 
 		JsonObject response = orderSvc.pizzaOrderToJsonObject(po);
 
