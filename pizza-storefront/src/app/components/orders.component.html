@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="mt-5">Orders for {{ email }}</h3>
+
+  <div
+    class="border m-3 p-3 rounded"
+    *ngFor="let order of emailOrders$ | async"
+  >
+    <h5>Date: {{ order.date | date }}</h5>
+    <h5>
+      Order Id: {{ order.orderId }}
+      <span>
+        <button
+          type="button"
+          class="ms-3 btn btn-primary"
+          (click)="delivered(order.orderId)"
+        >
+          Delivered
+        </button></span
+      >
+    </h5>
+
+    <h5>{{ order.total | currency }}</h5>
+  </div>
+
+  <div class="d-flex align-items-end">
+    <div class="ms-auto">
+      <button type="button" class="btn btn-warning" (click)="back()">
+        Back to Ordering
+      </button>
+    </div>
+  </div>
+</div>
